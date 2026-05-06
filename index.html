@@ -2,27 +2,37 @@
 <html lang="sr">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALOPAK</title>
+
     <link rel="stylesheet" href="navbar.css">
 </head>
 
 <body>
+
     <header class="site-header">
         <div class="header-inner">
-            <a href="#" class="logo-wrap">
+
+            <a href="#" class="logo-wrap" aria-label="ALOPAK početna">
                 <div class="logo-img"></div>
             </a>
-            <nav>
-                <ul class="nav-menu">
+
+            <button class="burger-btn" id="burgerBtn" aria-label="Otvori meni">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-holder">
+                <ul class="nav-menu" id="navMenu">
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">Početna</a>
                     </li>
 
                     <li class="nav-item has-dropdown">
-                        <a href="#" class="nav-link">Šta nudimo</a>
+                        <a href="#" class="nav-link dropdown-toggle">Šta nudimo</a>
 
                         <ul class="dropdown-menu">
                             <li><a href="#">Proizvod 1</a></li>
@@ -33,7 +43,7 @@
                     </li>
 
                     <li class="nav-item has-dropdown">
-                        <a href="#" class="nav-link">Naši partneri</a>
+                        <a href="#" class="nav-link dropdown-toggle">Naši partneri</a>
 
                         <ul class="dropdown-menu">
                             <li><a href="#">Partner 1</a></li>
@@ -56,6 +66,67 @@
 
         </div>
     </header>
+
+    <script>
+        const burgerBtn = document.getElementById("burgerBtn");
+        const navMenu = document.getElementById("navMenu");
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+
+        burgerBtn.addEventListener("click", function () {
+            burgerBtn.classList.toggle("active");
+            navMenu.classList.toggle("active");
+
+            if (!navMenu.classList.contains("active")) {
+                closeAllDropdowns();
+            }
+        });
+
+        dropdownToggles.forEach(function (toggle) {
+            toggle.addEventListener("click", function (event) {
+                if (window.innerWidth <= 900) {
+                    event.preventDefault();
+
+                    const currentDropdown = toggle.closest(".has-dropdown");
+                    const isAlreadyOpen = currentDropdown.classList.contains("open");
+
+                    closeAllDropdowns();
+
+                    if (!isAlreadyOpen) {
+                        currentDropdown.classList.add("open");
+                    }
+                }
+            });
+        });
+
+        document.addEventListener("click", function (event) {
+            if (window.innerWidth <= 900) {
+                const clickedInsideMenu = event.target.closest(".nav-menu");
+                const clickedBurger = event.target.closest(".burger-btn");
+
+                if (!clickedInsideMenu && !clickedBurger) {
+                    navMenu.classList.remove("active");
+                    burgerBtn.classList.remove("active");
+                    closeAllDropdowns();
+                }
+            }
+        });
+
+        window.addEventListener("resize", function () {
+            if (window.innerWidth > 900) {
+                navMenu.classList.remove("active");
+                burgerBtn.classList.remove("active");
+                closeAllDropdowns();
+            }
+        });
+
+        function closeAllDropdowns() {
+            const openDropdowns = document.querySelectorAll(".has-dropdown.open");
+
+            openDropdowns.forEach(function (dropdown) {
+                dropdown.classList.remove("open");
+            });
+        }
+    </script>
 
 </body>
 

@@ -13,7 +13,7 @@ body {
 
 .site-header {
     width: 100%;
-    background: linear-gradient(135deg, white 0%, #f4f8fc 90%, #e8f0f8 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f4f8fc 50%, #e8f0f8 100%);
     border-bottom: 1px solid rgba(0, 52, 98, 0.12);
     box-shadow: 0 10px 35px rgba(0, 52, 98, 0.08);
     position: sticky;
@@ -22,13 +22,14 @@ body {
 }
 
 .header-inner {
-    max-width: 1250px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 14px 28px;
+    padding: 14px 34px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 36px;
+    position: relative;
 }
 
 /* LOGO */
@@ -36,17 +37,25 @@ body {
 .logo-wrap {
     display: flex;
     align-items: center;
-    gap: 14px;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logo-img {
-    width: 180px;
-    height: 64px;
+    width: 150px;
+    height: 65px;
     background-image: url("images/alopak_logo_clean.png");
     background-size: contain;
-    background-position: center;
+    background-position: left center;
     background-repeat: no-repeat;
+}
+
+/* NAV HOLDER */
+
+.nav-holder {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
 }
 
 /* NAVIGACIJA */
@@ -54,7 +63,7 @@ body {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 24px;
     list-style: none;
 }
 
@@ -66,12 +75,13 @@ body {
     display: flex;
     align-items: center;
     gap: 7px;
-    padding: 13px 16px;
+    padding: 13px 18px;
     color: #12344d;
     font-size: 20px;
     font-weight: 700;
     text-decoration: none;
     border-radius: 14px;
+    white-space: nowrap;
     transition:
         background 0.22s ease,
         color 0.22s ease,
@@ -86,11 +96,11 @@ body {
     box-shadow: 0 10px 22px rgba(0, 52, 98, 0.22);
 }
 
-/* STRELICA ZA DROPDOWN */
+/* DROPDOWN STRELICA */
 
 .has-dropdown .nav-link::after {
     content: "▾";
-    font-size: 18px;
+    font-size: 20px;
     transition: transform 0.25s ease;
 }
 
@@ -104,7 +114,7 @@ body {
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
-    min-width: 240px;
+    min-width: 250px;
     background: rgba(255, 255, 255, 0.98);
     border: 1px solid rgba(0, 52, 98, 0.12);
     border-radius: 18px;
@@ -130,15 +140,15 @@ body {
     pointer-events: auto;
 }
 
-/* NEVIDLJIVI MOST IZMEĐU DUGMETA I DROPDOWNA */
+/* Nevidljivi most između taba i dropdowna */
 
 .dropdown-menu::before {
     content: "";
     position: absolute;
-    top: -18px;
+    top: -22px;
     left: 0;
     width: 100%;
-    height: 18px;
+    height: 22px;
     background: transparent;
 }
 
@@ -146,7 +156,7 @@ body {
     display: block;
     padding: 12px 14px;
     color: #17384f;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     text-decoration: none;
     border-radius: 12px;
@@ -162,7 +172,7 @@ body {
     transform: translateX(4px);
 }
 
-/* KONTAKT DUGME */
+/* KONTAKT */
 
 .contact-btn {
     color: #ffffff !important;
@@ -174,60 +184,137 @@ body {
     box-shadow: 0 14px 28px rgba(0, 52, 98, 0.30);
 }
 
-/* TABLET */
+/* BURGER */
 
-@media (max-width: 900px) {
-    .header-inner {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 16px 20px;
-    }
-
-    .logo-wrap {
-        justify-content: center;
-    }
-
-    .nav-menu {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 6px;
-    }
-
-    .dropdown-menu {
-        left: 50%;
-        transform: translate(-50%, 6px);
-    }
-
-    .has-dropdown:hover .dropdown-menu {
-        transform: translate(-50%, 0);
-    }
+.burger-btn {
+    display: none;
+    width: 46px;
+    height: 42px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(135deg, #0e548f, #003462);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: 0 10px 22px rgba(0, 52, 98, 0.22);
+    margin-left: auto;
 }
 
-/* TELEFON */
+.burger-btn span {
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
 
-@media (max-width: 520px) {
-    .logo-img {
-        width: 135px;
-        height: 52px;
+.burger-btn.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.burger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-btn.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* MANJI DESKTOP */
+
+@media (max-width: 1150px) {
+    .header-inner {
+        padding: 14px 24px;
+        gap: 22px;
     }
 
     .nav-menu {
-        flex-direction: column;
-        align-items: stretch;
+        gap: 10px;
     }
 
     .nav-link {
+        padding: 12px 13px;
+        font-size: 20px;
+    }
+
+    .logo-img {
+        width: 138px;
+    }
+}
+
+/* TABLET I TELEFON */
+
+@media (max-width: 900px) {
+    .header-inner {
+        padding: 14px 20px;
+        gap: 16px;
+    }
+
+    .logo-img {
+        width: 145px;
+        height: 56px;
+    }
+
+    .burger-btn {
+        display: flex;
+    }
+
+    .nav-holder {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 20px;
+        right: 20px;
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0, 52, 98, 0.12);
+        border-radius: 22px;
+        box-shadow: 0 18px 45px rgba(0, 52, 98, 0.18);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-link {
+        width: 100%;
+        justify-content: space-between;
+        padding: 14px 16px;
+        font-size: 16px;
+    }
+
+    .nav-link:hover {
+        transform: none;
+    }
+
+    .contact-btn {
         justify-content: center;
     }
 
     .dropdown-menu {
         position: static;
         min-width: 100%;
-        margin-top: 6px;
-        transform: none;
+        margin-top: 7px;
+        padding: 8px;
+        box-shadow: none;
+        border-radius: 15px;
+        background: rgba(14, 84, 143, 0.06);
+
         display: none;
         opacity: 1;
         visibility: visible;
+        transform: none;
         pointer-events: auto;
     }
 
@@ -235,8 +322,47 @@ body {
         display: none;
     }
 
+    .dropdown-menu a {
+        font-size: 16px;
+        padding: 11px 13px;
+    }
+
     .has-dropdown:hover .dropdown-menu {
-        display: block;
+        display: none;
+    }
+
+    .has-dropdown:hover .nav-link::after {
         transform: none;
+    }
+
+    .has-dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .has-dropdown.open .nav-link::after {
+        transform: rotate(180deg);
+    }
+}
+
+/* TELEFON */
+
+@media (max-width: 520px) {
+    .header-inner {
+        padding: 12px 16px;
+    }
+
+    .logo-img {
+        width: 128px;
+        height: 50px;
+    }
+
+    .burger-btn {
+        width: 44px;
+        height: 40px;
+    }
+
+    .nav-holder {
+        left: 16px;
+        right: 16px;
     }
 }
