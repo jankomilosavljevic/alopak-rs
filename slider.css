@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider {
+    width: 100%;
+    height: 80vh;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+}
+
+.slider-track {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.slider-item {
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+}
+
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Strelice */
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+
+    background-color: rgba(0, 0, 0, 0.45);
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.25s ease;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.slider-btn-left {
+    left: 24px;
+}
+
+.slider-btn-right {
+    right: 24px;
+}
+
+/* Kružici */
+
+.slider-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    display: flex;
+    gap: 10px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.slider-dot.active {
+    background-color: white;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .slider {
+        height: 38vh;
+        min-height: 240px;
+    }
+
+    .slider-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 24px;
+    }
+
+    .slider-btn-left {
+        left: 14px;
+    }
+
+    .slider-btn-right {
+        right: 14px;
+    }
+}
+
+/* Telefon */
+
+@media (max-width: 600px) {
+    .slider {
+        height: 34vh;
+        min-height: 210px;
+    }
+
+    .slider-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+    }
+
+    .slider-btn-left {
+        left: 10px;
+    }
+
+    .slider-btn-right {
+        right: 10px;
+    }
+
+    .slider-dot {
+        width: 10px;
+        height: 10px;
+    }
+}

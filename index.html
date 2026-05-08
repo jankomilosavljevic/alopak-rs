@@ -7,6 +7,7 @@
     <title>ALOPAK</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="slider.css">
 </head>
 
 <body>
@@ -77,19 +78,6 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-dropdown">
-                        <a class="nav-link dropdown-toggle">Naši partneri</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="https://erapackaging.rs/" target="_blank">Era Packaging</a></li>
-                            <li><a href="https://pptraka.rs/" target="_blank">Masterpak</a></li>
-                            <li><a href="https://www.strecfolija.rs/" target="_blank">Super Storm d.o.o.</a></li>
-                            <li><a href="https://europroduct.rs" target="_blank">Europroduct d.o.o.</a></li>
-                            <li><a href="https://teolpack.rs/" target="_blank">TEOL d.o.o.</a></li>
-                            <li><a href="https://www.selotejp.rs/" target="_blank">DSD Packaging Solutions</a></li>
-                            <li><a href="https://pramat.hr/hr/" target="_blank">Pramat d.o.o.</a></li>
-                        </ul>
-                    </li>
-
                     <li class="nav-item">
                         <a href="#" class="nav-link contact-btn">Kontakt</a>
                     </li>
@@ -100,11 +88,50 @@
         </div>
     </header>
 
-    <main>
+    <section class="slider">
+        <div class="slider-track" id="sliderTrack">
 
-    </main>
+            <div class="slider-item">
+                <img src="images/img1.png" alt="Slika 1">
+            </div>
+
+            <div class="slider-item">
+                <img src="images/img2.png" alt="Slika 2">
+            </div>
+
+            <div class="slider-item">
+                <img src="images/img3.png" alt="Slika 3">
+            </div>
+
+            <div class="slider-item">
+                <img src="images/img4.png" alt="Slika 4">
+            </div>
+
+            <div class="slider-item">
+                <img src="images/img5.png" alt="Slika 5">
+            </div>
+
+            <div class="slider-item">
+                <img src="images/img6.png" alt="Slika 6">
+            </div>
+
+        </div>
+
+        <button class="slider-btn slider-btn-left" id="prevBtn">&#10094;</button>
+        <button class="slider-btn slider-btn-right" id="nextBtn">&#10095;</button>
+
+        <div class="slider-dots">
+            <button class="slider-dot active" data-index="0"></button>
+            <button class="slider-dot" data-index="1"></button>
+            <button class="slider-dot" data-index="2"></button>
+            <button class="slider-dot" data-index="3"></button>
+            <button class="slider-dot" data-index="4"></button>
+            <button class="slider-dot" data-index="5"></button>
+        </div>
+    </section>
 
     <script src="navbarScript.js"></script>
+    <script src="sliderScript.js"></script>
 </body>
 
 </html>
