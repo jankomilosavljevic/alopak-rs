@@ -14,7 +14,7 @@ burgerBtn.addEventListener("click", function () {
 
 dropdownToggles.forEach(function (toggle) {
     toggle.addEventListener("click", function (event) {
-        if (window.innerWidth <= 900) {
+        if (window.innerWidth <= 1375) {
             event.preventDefault();
 
             const currentDropdown = toggle.closest(".has-dropdown");
@@ -30,7 +30,7 @@ dropdownToggles.forEach(function (toggle) {
 });
 
 document.addEventListener("click", function (event) {
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 1375) {
         const clickedInsideMenu = event.target.closest(".nav-menu");
         const clickedBurger = event.target.closest(".burger-btn");
 
@@ -43,7 +43,7 @@ document.addEventListener("click", function (event) {
 });
 
 window.addEventListener("resize", function () {
-    if (window.innerWidth > 900) {
+    if (window.innerWidth > 1375) {
         navMenu.classList.remove("active");
         burgerBtn.classList.remove("active");
         closeAllDropdowns();
