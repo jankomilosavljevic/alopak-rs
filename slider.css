@@ -167,16 +167,23 @@
     height: 12px;
     border: 2px solid #12344d;
     border-radius: 50%;
-    background-color: transparent;
+    background-color: white;
     cursor: pointer;
     padding: 0;
 }
 
 .slider-dot.active {
-    background-color: #12344d;
+    background-color: #0095ff;
+    border: 2px solid #0095ff;
 }
 
 /* Tablet */
+@media (max-width:1050px) {
+    .slider-item img {
+        object-position: -350px 0;
+    }
+}
+
 
 @media (max-width: 900px) {
     .slider {
@@ -191,11 +198,11 @@
     .slider-panel {
         left: 22px;
         right: 22px;
-        bottom: 64px;
+        bottom: 22px;
         top: auto;
         transform: none;
 
-        width: auto;
+        width: 370px;
         padding: 20px 22px;
         border-radius: 22px;
     }
@@ -225,6 +232,12 @@
 
     .slider-btn-right {
         right: 14px;
+    }
+}
+
+@media (max-width: 690px) {
+    .slider-item img {
+        object-position: -220px 0;
     }
 }
 
