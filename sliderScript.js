@@ -1,3 +1,4 @@
+const slider = document.querySelector(".slider");
 const sliderTrack = document.getElementById("sliderTrack");
 const dots = document.querySelectorAll(".slider-dot");
 const prevBtn = document.getElementById("prevBtn");
@@ -8,9 +9,6 @@ const sliderCategory = document.getElementById("sliderCategory");
 const sliderTitle = document.getElementById("sliderTitle");
 const sliderText = document.getElementById("sliderText");
 const sliderLink = document.getElementById("sliderLink");
-
-let currentIndex = 0;
-const totalSlides = dots.length;
 
 const slideContent = [
     {
@@ -57,8 +55,60 @@ const slideContent = [
     }
 ];
 
+let originalSlides = sliderTrack
+    ? Array.from(sliderTrack.querySelectorAll(".slider-item"))
+    : [];
+
+const totalSlides = originalSlides.length;
+
+let currentIndex = 1;
+let isTransitioning = false;
+
+if (sliderTrack && totalSlides > 0) {
+    const firstClone = originalSlides[0].cloneNode(true);
+    const lastClone = originalSlides[totalSlides - 1].cloneNode(true);
+
+    firstClone.classList.add("slider-clone");
+    lastClone.classList.add("slider-clone");
+
+    sliderTrack.appendChild(firstClone);
+    sliderTrack.insertBefore(lastClone, originalSlides[0]);
+
+    sliderTrack.style.transition = "none";
+    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    requestAnimationFrame(function () {
+        sliderTrack.style.transition = "transform 0.6s ease";
+    });
+}
+
+function getRealIndex() {
+    if (currentIndex === 0) {
+        return totalSlides - 1;
+    }
+
+    if (currentIndex === totalSlides + 1) {
+        return 0;
+    }
+
+    return currentIndex - 1;
+}
+
+function updateDots() {
+    const realIndex = getRealIndex();
+
+    dots.forEach(function (dot) {
+        dot.classList.remove("active");
+    });
+
+    if (dots[realIndex]) {
+        dots[realIndex].classList.add("active");
+    }
+}
+
 function updatePanel() {
-    const content = slideContent[currentIndex];
+    const realIndex = getRealIndex();
+    const content = slideContent[realIndex];
 
     if (!content || !sliderPanel) return;
 
@@ -75,43 +125,145 @@ function updatePanel() {
     }, 120);
 }
 
-function updateSlider() {
+function moveSlider(withTransition = true) {
+    if (!sliderTrack) return;
+
+    sliderTrack.style.transition = withTransition ? "transform 0.6s ease" : "none";
     sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    dots.forEach(function (dot) {
-        dot.classList.remove("active");
-    });
-
-    dots[currentIndex].classList.add("active");
-
+    updateDots();
     updatePanel();
+
+    if (withTransition) {
+        isTransitioning = true;
+    }
 }
 
-nextBtn.addEventListener("click", function () {
+function jumpWithoutAnimation() {
+    if (!sliderTrack) return;
+
+    sliderTrack.style.transition = "none";
+    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    sliderTrack.offsetHeight;
+
+    sliderTrack.style.transition = "transform 0.6s ease";
+}
+
+function goToNextSlide() {
+    if (isTransitioning) return;
+
     currentIndex++;
+    moveSlider(true);
+}
 
-    if (currentIndex >= totalSlides) {
-        currentIndex = 0;
-    }
+function goToPrevSlide() {
+    if (isTransitioning) return;
 
-    updateSlider();
-});
-
-prevBtn.addEventListener("click", function () {
     currentIndex--;
+    moveSlider(true);
+}
 
-    if (currentIndex < 0) {
-        currentIndex = totalSlides - 1;
-    }
+if (nextBtn) {
+    nextBtn.addEventListener("click", goToNextSlide);
+}
 
-    updateSlider();
-});
+if (prevBtn) {
+    prevBtn.addEventListener("click", goToPrevSlide);
+}
 
 dots.forEach(function (dot) {
     dot.addEventListener("click", function () {
-        currentIndex = Number(dot.dataset.index);
-        updateSlider();
+        if (isTransitioning) return;
+
+        const targetRealIndex = Number(dot.dataset.index);
+        const currentRealIndex = getRealIndex();
+
+        if (currentRealIndex === 0 && targetRealIndex === totalSlides - 1) {
+            currentIndex = 0;
+        } else if (currentRealIndex === totalSlides - 1 && targetRealIndex === 0) {
+            currentIndex = totalSlides + 1;
+        } else {
+            currentIndex = targetRealIndex + 1;
+        }
+
+        moveSlider(true);
     });
 });
 
+if (sliderTrack) {
+    sliderTrack.addEventListener("transitionend", function () {
+        if (currentIndex === 0) {
+            currentIndex = totalSlides;
+            jumpWithoutAnimation();
+        }
+
+        if (currentIndex === totalSlides + 1) {
+            currentIndex = 1;
+            jumpWithoutAnimation();
+        }
+
+        isTransitioning = false;
+    });
+}
+
+/* TOUCH / SWIPE ZA TELEFON */
+
+let touchStartX = 0;
+let touchStartY = 0;
+let touchCurrentX = 0;
+let isDragging = false;
+
+if (slider && sliderTrack) {
+    slider.addEventListener("touchstart", function (event) {
+        if (isTransitioning) return;
+
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+        touchCurrentX = touchStartX;
+        isDragging = true;
+
+        sliderTrack.style.transition = "none";
+    }, { passive: true });
+
+    slider.addEventListener("touchmove", function (event) {
+        if (!isDragging) return;
+
+        touchCurrentX = event.touches[0].clientX;
+
+        const touchCurrentY = event.touches[0].clientY;
+        const diffX = touchCurrentX - touchStartX;
+        const diffY = touchCurrentY - touchStartY;
+
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            event.preventDefault();
+
+            sliderTrack.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diffX}px))`;
+        }
+    }, { passive: false });
+
+    slider.addEventListener("touchend", function () {
+        if (!isDragging) return;
+
+        isDragging = false;
+
+        const diffX = touchCurrentX - touchStartX;
+        const swipeLimit = 50;
+
+        if (diffX < -swipeLimit) {
+            goToNextSlide();
+        } else if (diffX > swipeLimit) {
+            goToPrevSlide();
+        } else {
+            moveSlider(true);
+        }
+    });
+
+    slider.addEventListener("touchcancel", function () {
+        isDragging = false;
+        moveSlider(true);
+    });
+}
+
+updateDots();
 updatePanel();

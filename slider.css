@@ -15,6 +15,7 @@
 }
 
 .slider-item {
+    background-color: white;
     width: 100%;
     height: 100%;
     flex: 0 0 100%;
@@ -41,7 +42,6 @@
     padding: 28px 30px;
 
     background: rgba(255, 255, 255, 0.614);
-    border: 1px solid rgba(255, 255, 255, 0.75);
     border-radius: 26px;
     box-shadow: 0 24px 60px rgba(0, 52, 98, 0.22);
     backdrop-filter: blur(12px);
@@ -232,43 +232,69 @@
 
 @media (max-width: 600px) {
     .slider {
-        height: 40vh;
+        height: 390px;
         min-height: 210px;
-        padding-top: 60px;
+        background: #ffffff;
+        touch-action: pan-y;
+    }
+
+    .slider-track,
+    .slider-item {
+        background: #ffffff;
     }
 
     .slider-item img {
-        object-position: right center;
+        background: #ffffff;
+        object-fit: contain;
+        object-position: 0 0;
     }
 
     .slider-panel {
         display: block;
         position: absolute;
-        top: 0;
+
         left: 0;
-        height: 165px;
+        right: auto;
+        bottom: 0;
+        top: auto;
+
         width: 100%;
+        height: 160px;
+
+        padding: 14px 18px;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+
+        background: #ffffff;
+        transform: none;
+    }
+
+    .slider-panel:hover {
+        transform: none;
+        box-shadow: none;
     }
 
     .slider-panel-kicker {
-        font-size: 8px;
+        font-size: 10px;
         margin-bottom: 2px;
     }
 
     .slider-panel h2 {
-        font-size: 20px;
-        margin-bottom: 9px;
+        font-size: 18px;
+        margin-bottom: 6px;
     }
 
     .slider-panel p {
-        font-size: 12px;
-        line-height: 1;
+        font-size: 15px;
+        line-height: 1.15;
+        margin-bottom: 10px;
     }
 
     .slider-panel-btn {
         width: 100%;
-        padding: 12px 16px;
-        font-size: 14px;
+        padding: 12px 10px;
+        font-size: 12px;
     }
 
     .slider-btn {
@@ -278,19 +304,22 @@
     }
 
     .slider-btn-left {
+        top: 125px;
         left: 10px;
     }
 
     .slider-btn-right {
+        top: 125px;
         right: 10px;
     }
 
     .slider-dot {
+        background-color: white;
         width: 10px;
         height: 10px;
     }
 
     .slider-dots {
-        bottom: 18px;
+        bottom: 164px;
     }
 }

@@ -14,13 +14,14 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7fb;
+    background: white;
     min-height: 100vh;
 }
 
 /* DESKTOP: jedan scroll = jedna sekcija */
 
 @media (min-width: 901px) {
+
     html,
     body {
         height: 100%;
@@ -45,6 +46,7 @@ body {
 /* TABLET I TELEFON: normalan scroll */
 
 @media (max-width: 900px) {
+
     html,
     body {
         height: auto;
@@ -66,7 +68,7 @@ body {
 /* SEKCIJE ISPOD SLAJDERA */
 
 .content-section {
-    background: linear-gradient(135deg, #ffffff 0%, #f4f8fc 55%, #eaf1f8 100%);
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
