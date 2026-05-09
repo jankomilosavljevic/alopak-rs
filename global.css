@@ -4,7 +4,150 @@
     box-sizing: border-box;
 }
 
+:root {
+    --header-height: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #f4f7fb;
+    min-height: 100vh;
+}
+
+/* DESKTOP: jedan scroll = jedna sekcija */
+
+@media (min-width: 901px) {
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .page-scroll {
+        height: calc(100vh - var(--header-height));
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+    }
+
+    .snap-section {
+        min-height: calc(100vh - var(--header-height));
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+}
+
+/* TABLET I TELEFON: normalan scroll */
+
+@media (max-width: 900px) {
+    html,
+    body {
+        height: auto;
+        overflow: auto;
+    }
+
+    .page-scroll {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    .snap-section {
+        min-height: auto;
+        scroll-snap-align: none;
+    }
+}
+
+/* SEKCIJE ISPOD SLAJDERA */
+
+.content-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f4f8fc 55%, #eaf1f8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 24px;
+}
+
+.section-blue {
+    background: linear-gradient(135deg, #0e548f 0%, #003462 100%);
+    color: white;
+}
+
+.section-content {
+    width: min(1100px, 100%);
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #0e548f;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.section-blue .section-label {
+    color: #ffffff;
+}
+
+.section-content h1 {
+    color: #12344d;
+    font-size: clamp(34px, 5vw, 72px);
+    line-height: 1.05;
+    margin-bottom: 22px;
+}
+
+.section-blue .section-content h1 {
+    color: #ffffff;
+}
+
+.section-content p {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    color: #486173;
+    font-size: clamp(17px, 1.6vw, 24px);
+    line-height: 1.65;
+}
+
+.section-blue .section-content p {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.section-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 28px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #0e548f, #003462);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 14px 30px rgba(0, 52, 98, 0.22);
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.section-blue .section-btn {
+    background: #ffffff;
+    color: #003462;
+}
+
+.section-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 38px rgba(0, 52, 98, 0.28);
+}
+
+@media (max-width: 900px) {
+    .content-section {
+        padding: 75px 20px;
+    }
 }

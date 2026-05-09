@@ -35,51 +35,49 @@
                     <li class="nav-item has-dropdown">
                         <a class="nav-link dropdown-toggle">PP trake</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Proizvod 1</a></li>
-                            <li><a href="#">Proizvod 2</a></li>
+                            <li><a href="pp-trake.html">PP trake</a></li>
+                            <li><a href="pp-trake.html">Automatske PP trake</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item has-dropdown">
                         <a class="nav-link dropdown-toggle">PET trake</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Proizvod 1</a></li>
-                            <li><a href="#">Proizvod 2</a></li>
+                            <li><a href="pet-trake.html">PET trake</a></li>
+                            <li><a href="pet-trake.html">Industrijske PET trake</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item has-dropdown">
                         <a class="nav-link dropdown-toggle">Spojnice</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Proizvod 1</a></li>
-                            <li><a href="#">Proizvod 2</a></li>
+                            <li><a href="spojnice.html">Metalne spojnice</a></li>
+                            <li><a href="zicane-spojnice.html">Žičane spojnice</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item has-dropdown">
                         <a class="nav-link dropdown-toggle">Alati</a>
-
                         <ul class="dropdown-menu">
-                            <li><a href="#">Proizvod 1</a></li>
-                            <li><a href="#">Proizvod 2</a></li>
+                            <li><a href="rucni-alati.html">Ručni alati</a></li>
+                            <li><a href="rucni-alati.html">Alati za zatezanje</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Dispenzeri</a>
+                        <a href="dispenzeri.html" class="nav-link">Dispenzeri</a>
                     </li>
 
                     <li class="nav-item has-dropdown">
                         <a class="nav-link dropdown-toggle">Mašine</a>
-
                         <ul class="dropdown-menu">
-                            <li><a href="#">Proizvod 1</a></li>
-                            <li><a href="#">Proizvod 2</a></li>
+                            <li><a href="masine.html">Mašine za vezivanje</a></li>
+                            <li><a href="masine.html">Poluautomatske mašine</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link contact-btn">Kontakt</a>
+                        <a href="kontakt.html" class="nav-link contact-btn">Kontakt</a>
                     </li>
 
                 </ul>
@@ -88,50 +86,99 @@
         </div>
     </header>
 
-    <section class="slider">
-        <div class="slider-track" id="sliderTrack">
+    <main class="page-scroll" id="pageScroll">
 
-            <div class="slider-item">
-                <img src="images/img1.png" alt="Slika 1">
+        <section class="slider snap-section">
+            <div class="slider-track" id="sliderTrack">
+
+                <div class="slider-item">
+                    <img src="images/img1.png" alt="Ručni alat za vezivanje trakom">
+                </div>
+
+                <div class="slider-item">
+                    <img src="images/img2.png" alt="Metalne spojnice za trake">
+                </div>
+
+                <div class="slider-item">
+                    <img src="images/img3.png" alt="Crne PP trake">
+                </div>
+
+                <div class="slider-item">
+                    <img src="images/img4.png" alt="Zelene PET trake">
+                </div>
+
+                <div class="slider-item">
+                    <img src="images/img5.png" alt="Žičane spojnice za trake">
+                </div>
+
+                <div class="slider-item">
+                    <img src="images/img6.png" alt="Žičane spojnice za trake">
+                </div>
+
             </div>
 
-            <div class="slider-item">
-                <img src="images/img2.png" alt="Slika 2">
+            <div class="slider-panel" id="sliderPanel">
+                <span class="slider-panel-kicker" id="sliderCategory">RUČNI ALATI</span>
+                <h2 id="sliderTitle">Ručni alati</h2>
+                <p id="sliderText">
+                    Alati za zatezanje, sečenje i zatvaranje traka, pogodni za svakodnevnu upotrebu u pakovanju.
+                </p>
+                <a href="rucni-alati.html" class="slider-panel-btn" id="sliderLink">
+                    Pogledaj proizvod
+                </a>
             </div>
 
-            <div class="slider-item">
-                <img src="images/img3.png" alt="Slika 3">
+            <button class="slider-btn slider-btn-left" id="prevBtn" aria-label="Prethodna slika">&#10094;</button>
+            <button class="slider-btn slider-btn-right" id="nextBtn" aria-label="Sledeća slika">&#10095;</button>
+
+            <div class="slider-dots" aria-label="Navigacija slajdera">
+                <button class="slider-dot active" data-index="0" aria-label="Slika 1"></button>
+                <button class="slider-dot" data-index="1" aria-label="Slika 2"></button>
+                <button class="slider-dot" data-index="2" aria-label="Slika 3"></button>
+                <button class="slider-dot" data-index="3" aria-label="Slika 4"></button>
+                <button class="slider-dot" data-index="4" aria-label="Slika 5"></button>
+                <button class="slider-dot" data-index="5" aria-label="Slika 6"></button>
             </div>
+        </section>
 
-            <div class="slider-item">
-                <img src="images/img4.png" alt="Slika 4">
+        <section class="snap-section content-section">
+            <div class="section-content">
+                <span class="section-label">ALOPAK</span>
+                <h1>Profesionalna rešenja za pakovanje</h1>
+                <p>
+                    PP trake, PET trake, spojnice, ručni alati, dispenzeri i mašine za vezivanje trakom.
+                </p>
+                <a href="#" class="section-btn">Pogledaj ponudu</a>
             </div>
+        </section>
 
-            <div class="slider-item">
-                <img src="images/img5.png" alt="Slika 5">
+        <section class="snap-section content-section section-blue">
+            <div class="section-content">
+                <span class="section-label">PONUDA</span>
+                <h1>Oprema i potrošni materijal</h1>
+                <p>
+                    Sve što je potrebno za stabilno, sigurno i efikasno pakovanje robe.
+                </p>
+                <a href="#" class="section-btn">Saznaj više</a>
             </div>
+        </section>
 
-            <div class="slider-item">
-                <img src="images/img6.png" alt="Slika 6">
+        <section class="snap-section content-section">
+            <div class="section-content">
+                <span class="section-label">KONTAKT</span>
+                <h1>Treba vam preporuka za pravi proizvod?</h1>
+                <p>
+                    Kontaktirajte nas i pomoći ćemo vam da izaberete odgovarajuće rešenje za vaše pakovanje.
+                </p>
+                <a href="kontakt.html" class="section-btn">Kontaktiraj nas</a>
             </div>
+        </section>
 
-        </div>
-
-        <button class="slider-btn slider-btn-left" id="prevBtn">&#10094;</button>
-        <button class="slider-btn slider-btn-right" id="nextBtn">&#10095;</button>
-
-        <div class="slider-dots">
-            <button class="slider-dot active" data-index="0"></button>
-            <button class="slider-dot" data-index="1"></button>
-            <button class="slider-dot" data-index="2"></button>
-            <button class="slider-dot" data-index="3"></button>
-            <button class="slider-dot" data-index="4"></button>
-            <button class="slider-dot" data-index="5"></button>
-        </div>
-    </section>
+    </main>
 
     <script src="navbarScript.js"></script>
     <script src="sliderScript.js"></script>
+    <script src="layoutScript.js"></script>
 </body>
 
 </html>

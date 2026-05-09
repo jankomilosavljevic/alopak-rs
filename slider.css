@@ -1,13 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .slider {
     width: 100%;
-    height: 89.9vh;
-    min-height: 280px;
+    height: calc(100vh - var(--header-height));
+    min-height: 420px;
     position: relative;
     overflow: hidden;
     background-color: white;
@@ -30,7 +24,92 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     display: block;
+}
+
+/* INFO PANEL */
+
+.slider-panel {
+    position: absolute;
+    left: clamp(34px, 6vw, 110px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9;
+
+    width: min(420px, 34vw);
+    padding: 28px 30px;
+
+    background: rgba(255, 255, 255, 0.614);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 26px;
+    box-shadow: 0 24px 60px rgba(0, 52, 98, 0.22);
+    backdrop-filter: blur(12px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.slider-panel:hover {
+    transform: translateY(calc(-50% - 4px));
+    box-shadow: 0 30px 70px rgba(0, 52, 98, 0.28);
+}
+
+.slider-panel.is-changing {
+    opacity: 0.5;
+}
+
+.slider-panel-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #0e548f;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.slider-panel h2 {
+    color: #12344d;
+    font-size: clamp(28px, 2.8vw, 48px);
+    line-height: 1.05;
+    margin-bottom: 14px;
+}
+
+.slider-panel p {
+    color: #0a394d;
+    font-size: clamp(15px, 1.1vw, 18px);
+    line-height: 1.55;
+    margin-bottom: 22px;
+}
+
+.slider-panel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 22px;
+    border-radius: 15px;
+
+    background: linear-gradient(135deg, #0e548f, #003462);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    text-decoration: none;
+
+    box-shadow: 0 14px 28px rgba(0, 52, 98, 0.24);
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.22s ease;
+}
+
+.slider-panel-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 36px rgba(0, 52, 98, 0.32);
+    background: linear-gradient(135deg, #003462, #001f3b);
 }
 
 /* Strelice */
@@ -86,7 +165,7 @@
 .slider-dot {
     width: 12px;
     height: 12px;
-    border: 2px solid white;
+    border: 2px solid #12344d;
     border-radius: 50%;
     background-color: transparent;
     cursor: pointer;
@@ -94,7 +173,7 @@
 }
 
 .slider-dot.active {
-    background-color: white;
+    background-color: #12344d;
 }
 
 /* Tablet */
@@ -103,6 +182,35 @@
     .slider {
         height: 58vh;
         min-height: 240px;
+    }
+
+    .slider-item img {
+        object-position: center center;
+    }
+
+    .slider-panel {
+        left: 22px;
+        right: 22px;
+        bottom: 64px;
+        top: auto;
+        transform: none;
+
+        width: auto;
+        padding: 20px 22px;
+        border-radius: 22px;
+    }
+
+    .slider-panel:hover {
+        transform: translateY(-4px);
+    }
+
+    .slider-panel h2 {
+        font-size: 30px;
+    }
+
+    .slider-panel p {
+        font-size: 15px;
+        margin-bottom: 16px;
     }
 
     .slider-btn {
@@ -128,6 +236,36 @@
         min-height: 210px;
     }
 
+    .slider-item img {
+        object-position: center center;
+    }
+
+    .slider-panel {
+        display: none;
+    }
+
+    .slider-panel-kicker {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+
+    .slider-panel h2 {
+        font-size: 24px;
+        margin-bottom: 9px;
+    }
+
+    .slider-panel p {
+        font-size: 14px;
+        line-height: 1.45;
+        margin-bottom: 13px;
+    }
+
+    .slider-panel-btn {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+
     .slider-btn {
         width: 36px;
         height: 36px;
@@ -145,5 +283,9 @@
     .slider-dot {
         width: 10px;
         height: 10px;
+    }
+
+    .slider-dots {
+        bottom: 18px;
     }
 }
