@@ -63,6 +63,7 @@ const totalSlides = originalSlides.length;
 
 let currentIndex = 1;
 let isTransitioning = false;
+let isDragging = false;
 
 if (sliderTrack && totalSlides > 0) {
     const firstClone = originalSlides[0].cloneNode(true);
@@ -136,6 +137,8 @@ function moveSlider(withTransition = true) {
 
     if (withTransition) {
         isTransitioning = true;
+    } else {
+        isTransitioning = false;
     }
 }
 
@@ -165,19 +168,31 @@ function goToPrevSlide() {
 }
 
 if (nextBtn) {
-    nextBtn.addEventListener("click", goToNextSlide);
+    nextBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        goToNextSlide();
+    });
 }
 
 if (prevBtn) {
-    prevBtn.addEventListener("click", goToPrevSlide);
+    prevBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        goToPrevSlide();
+    });
 }
 
 dots.forEach(function (dot) {
-    dot.addEventListener("click", function () {
+    dot.addEventListener("click", function (event) {
+        event.stopPropagation();
+
         if (isTransitioning) return;
 
         const targetRealIndex = Number(dot.dataset.index);
         const currentRealIndex = getRealIndex();
+
+        if (targetRealIndex === currentRealIndex) {
+            return;
+        }
 
         if (currentRealIndex === 0 && targetRealIndex === totalSlides - 1) {
             currentIndex = 0;
@@ -212,10 +227,18 @@ if (sliderTrack) {
 let touchStartX = 0;
 let touchStartY = 0;
 let touchCurrentX = 0;
-let isDragging = false;
 
 if (slider && sliderTrack) {
     slider.addEventListener("touchstart", function (event) {
+        const touchedControl = event.target.closest(
+            ".slider-btn, .slider-dot, .slider-panel-btn"
+        );
+
+        if (touchedControl) {
+            isDragging = false;
+            return;
+        }
+
         if (isTransitioning) return;
 
         touchStartX = event.touches[0].clientX;
@@ -255,13 +278,13 @@ if (slider && sliderTrack) {
         } else if (diffX > swipeLimit) {
             goToPrevSlide();
         } else {
-            moveSlider(true);
+            moveSlider(false);
         }
     });
 
     slider.addEventListener("touchcancel", function () {
         isDragging = false;
-        moveSlider(true);
+        moveSlider(false);
     });
 }
 
