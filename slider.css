@@ -246,7 +246,7 @@
     .slider-item img {
         background: #ffffff;
         object-fit: contain;
-        object-position: 0 0;
+        object-position: -0 -46.5px;
     }
 
     .slider-panel {
