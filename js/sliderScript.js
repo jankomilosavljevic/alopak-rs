@@ -12,11 +12,11 @@ const sliderLink = document.getElementById("sliderLink");
 
 const slideContent = [
     {
-        category: "RUČNI ALATI",
-        title: "Ručni alati",
-        text: "Alati za zatezanje, sečenje i zatvaranje traka, pogodni za svakodnevnu upotrebu u pakovanju.",
-        link: "rucni-alati.html",
-        button: "Pogledaj alate"
+        category: "SPOJNICE",
+        title: "Žičane spojnice",
+        text: "Praktične spojnice za brzo i čvrsto povezivanje traka bez komplikovanog procesa montaže.",
+        link: "zicane-spojnice.html",
+        button: "Pogledaj proizvod"
     },
     {
         category: "SPOJNICE",
@@ -40,18 +40,18 @@ const slideContent = [
         button: "Pogledaj PET trake"
     },
     {
-        category: "SPOJNICE",
-        title: "Žičane spojnice",
-        text: "Praktične spojnice za brzo i čvrsto povezivanje traka bez komplikovanog procesa montaže.",
-        link: "zicane-spojnice.html",
-        button: "Pogledaj proizvod"
-    },
-    {
         category: "MAŠINE I ALATI",
         title: "Baterijski alat",
         text: "Praktičan baterijski alat za brzo i efikasno vezivanje PP i PET trakom.",
         link: "baterijski-alat.html",
         button: "Pogledaj proizvod"
+    },
+    {
+        category: "RUČNI ALATI",
+        title: "Ručni alati",
+        text: "Alati za zatezanje, sečenje i zatvaranje traka, pogodni za svakodnevnu upotrebu u pakovanju.",
+        link: "rucni-alati.html",
+        button: "Pogledaj alate"
     }
 ];
 
