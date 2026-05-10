@@ -32,7 +32,7 @@
 .logo-img {
     width: 150px;
     height: 65px;
-    background-image: url("images/alopak_logo_clean.png");
+    background-image: url("/images/alopak_logo_clean.png");
     background-size: contain;
     background-position: left center;
     background-repeat: no-repeat;

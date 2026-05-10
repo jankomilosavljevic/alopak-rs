@@ -1,0 +1,212 @@
+body.contact-popup-open {
+    overflow: hidden;
+}
+
+body.contact-popup-open .page-scroll {
+    overflow: hidden;
+}
+
+.contact-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.22s ease,
+        visibility 0.22s ease;
+}
+
+.contact-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.contact-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top left, rgba(14, 84, 143, 0.28), transparent 34%),
+        rgba(7, 18, 31, 0.66);
+    backdrop-filter: blur(8px);
+}
+
+.contact-modal__dialog {
+    position: relative;
+    z-index: 1;
+    width: min(620px, 100%);
+    max-height: min(760px, calc(100vh - 48px));
+    overflow-y: auto;
+    padding: clamp(26px, 4vw, 40px);
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    border-radius: 24px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(244, 248, 252, 0.95));
+    box-shadow: 0 32px 80px rgba(0, 25, 49, 0.32);
+    transform: translateY(18px) scale(0.98);
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.contact-modal.is-open .contact-modal__dialog {
+    transform: translateY(0) scale(1);
+}
+
+.contact-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #12344d;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(0, 52, 98, 0.14);
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.contact-modal__close:hover,
+.contact-modal__close:focus-visible {
+    background: #0e548f;
+    color: #ffffff;
+    transform: rotate(90deg);
+    outline: none;
+}
+
+.contact-modal__header {
+    padding-right: 46px;
+    margin-bottom: 26px;
+}
+
+.contact-modal__label {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #0e548f;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+}
+
+.contact-modal__header h2 {
+    color: #12344d;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.05;
+    margin-bottom: 12px;
+}
+
+.contact-modal__header p {
+    max-width: 460px;
+    color: #486173;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.contact-modal__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.contact-modal__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 98px;
+    padding: 17px;
+    border: 1px solid rgba(0, 52, 98, 0.1);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.86);
+    color: #12344d;
+    text-decoration: none;
+    box-shadow: 0 14px 30px rgba(0, 52, 98, 0.08);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+a.contact-modal__item:hover,
+a.contact-modal__item:focus-visible {
+    border-color: rgba(14, 84, 143, 0.32);
+    box-shadow: 0 20px 40px rgba(0, 52, 98, 0.15);
+    transform: translateY(-3px);
+    outline: none;
+}
+
+.contact-modal__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0e548f, #003462);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.contact-modal__item strong,
+.contact-modal__item small {
+    display: block;
+}
+
+.contact-modal__item strong {
+    margin-bottom: 5px;
+    color: #12344d;
+    font-size: 16px;
+}
+
+.contact-modal__item small {
+    color: #486173;
+    font-size: 14px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+    .contact-modal {
+        align-items: flex-end;
+        padding: 14px;
+    }
+
+    .contact-modal__dialog {
+        max-height: calc(100vh - 28px);
+        padding: 24px 18px 18px;
+        border-radius: 22px;
+    }
+
+    .contact-modal__header {
+        padding-right: 42px;
+        margin-bottom: 20px;
+    }
+
+    .contact-modal__header p {
+        font-size: 15px;
+    }
+
+    .contact-modal__grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .contact-modal__item {
+        min-height: 82px;
+        padding: 14px;
+    }
+}

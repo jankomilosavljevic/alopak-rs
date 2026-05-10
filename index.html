@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALOPAK</title>
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/contact-popup.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
                         <a class="nav-link dropdown-toggle">PP trake</a>
                         <ul class="dropdown-menu">
                             <li><a href="pp-trake.html">PP trake</a></li>
-                            <li><a href="pp-trake.html">Automatske PP trake</a></li>
+                            <li><a href="automatske-pp-trake.html">Automatske PP trake</a></li>
                         </ul>
                     </li>
 
@@ -44,14 +45,14 @@
                         <a class="nav-link dropdown-toggle">PET trake</a>
                         <ul class="dropdown-menu">
                             <li><a href="pet-trake.html">PET trake</a></li>
-                            <li><a href="pet-trake.html">Industrijske PET trake</a></li>
+                            <li><a href="industrijske-pet-trake.html">Industrijske PET trake</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item has-dropdown">
                         <a class="nav-link dropdown-toggle">Spojnice</a>
                         <ul class="dropdown-menu">
-                            <li><a href="spojnice.html">Metalne spojnice</a></li>
+                            <li><a href="metalne-spojnice.html">Metalne spojnice</a></li>
                             <li><a href="zicane-spojnice.html">Žičane spojnice</a></li>
                         </ul>
                     </li>
@@ -60,7 +61,7 @@
                         <a class="nav-link dropdown-toggle">Alati</a>
                         <ul class="dropdown-menu">
                             <li><a href="rucni-alati.html">Ručni alati</a></li>
-                            <li><a href="rucni-alati.html">Alati za zatezanje</a></li>
+                            <li><a href="alati-za-zatezanje.html">Alati za zatezanje</a></li>
                         </ul>
                     </li>
 
@@ -71,13 +72,13 @@
                     <li class="nav-item has-dropdown">
                         <a class="nav-link dropdown-toggle">Mašine</a>
                         <ul class="dropdown-menu">
-                            <li><a href="masine.html">Mašine za vezivanje</a></li>
-                            <li><a href="masine.html">Poluautomatske mašine</a></li>
+                            <li><a href="masine-za-vezivanje.html">Mašine za vezivanje</a></li>
+                            <li><a href="poluautomatske-masine.html">Poluautomatske mašine</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a href="kontakt.html" class="nav-link contact-btn">Kontakt</a>
+                        <a href="/kontakt/kontakt.html" class="nav-link contact-btn" data-contact-popup>Kontakt</a>
                     </li>
 
                 </ul>
@@ -169,15 +170,50 @@
                 <p>
                     Kontaktirajte nas i pomoći ćemo vam da izaberete odgovarajuće rešenje za vaše pakovanje.
                 </p>
-                <a href="kontakt.html" class="section-btn">Kontaktiraj nas</a>
+                <a href="/kontakt/kontakt.html" class="section-btn" data-contact-popup>Kontaktiraj nas</a>
             </div>
         </section>
 
     </main>
 
-    <script src="navbarScript.js"></script>
-    <script src="sliderScript.js"></script>
-    <script src="layoutScript.js"></script>
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+        <div class="contact-modal__backdrop" data-contact-close></div>
+
+        <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle"
+            tabindex="-1">
+            <button class="contact-modal__close" type="button" aria-label="Zatvori popup" data-contact-close>
+                &times;
+            </button>
+
+            <div class="contact-modal__header">
+                <span class="contact-modal__label">ALOPAK</span>
+                <h2 id="contactModalTitle">Kontakt podaci</h2>
+            </div>
+
+            <div class="contact-modal__grid">
+                <a class="contact-modal__item" href="tel:+38163226459">
+                    <span class="contact-modal__icon">T</span>
+                    <span>
+                        <strong>Telefon</strong>
+                        <medium>+381 63 226 459</medium>
+                    </span>
+                </a>
+
+                <a class="contact-modal__item" href="mailto:info@alopak.rs" target="_blank">
+                    <span class="contact-modal__icon">E</span>
+                    <span>
+                        <strong>Email</strong>
+                        <medium>alopakrs@gmail.com</medium>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/navbarScript.js"></script>
+    <script src="js/sliderScript.js"></script>
+    <script src="js/layoutScript.js"></script>
+    <script src="js/contactPopup.js"></script>
 </body>
 
 </html>
