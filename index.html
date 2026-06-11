@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALOPAK</title>
+    <title>ALOPAK – Oprema za vezivanje i pakovanje</title>
+    <meta name="description"
+        content="ALOPAK – PET i PP trake, spojnice, kopče, ručni i baterijski alati i mašine za vezivanje i pakovanje robe.">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet" href="css/contact-popup.css">
 </head>
 
@@ -16,57 +19,44 @@
     <header class="site-header">
         <div class="header-inner">
 
-            <a href="#" class="logo-wrap" aria-label="ALOPAK početna">
-                <div class="logo-img"></div>
+            <a href="index.html" class="logo-wrap" aria-label="ALOPAK – početna">
+                <img src="images/alopak_logo.png" alt="ALOPAK" class="logo-img">
             </a>
 
-            <button class="burger-btn" id="burgerBtn" aria-label="Otvori meni">
+            <button class="burger-btn" id="burgerBtn" aria-label="Otvori meni" aria-expanded="false"
+                aria-controls="navMenu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <nav class="nav-holder">
+            <nav class="nav-holder" aria-label="Glavna navigacija">
                 <ul class="nav-menu" id="navMenu">
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Početna</a>
+                        <a href="index.html" class="nav-link">Početna</a>
                     </li>
 
                     <li class="nav-item has-dropdown">
-                        <a class="nav-link dropdown-toggle">PP trake</a>
+                        <a class="nav-link dropdown-toggle" href="oprema.html" aria-haspopup="true"
+                            aria-expanded="false">Oprema</a>
                         <ul class="dropdown-menu">
-                            <li><a href="pp-trake.html">PP trake</a></li>
-                            <li><a href="automatske-pp-trake.html">Automatske PP trake</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item has-dropdown">
-                        <a class="nav-link dropdown-toggle">PET trake</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="pet-trake.html">PET trake</a></li>
-                            <li><a href="industrijske-pet-trake.html">Industrijske PET trake</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item has-dropdown">
-                        <a class="nav-link dropdown-toggle">Spojnice</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="zicane-spojnice.html">Žičane spojnice</a></li>
-                            <li><a href="metalne-spojnice.html">Metalne spojnice</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item has-dropdown">
-                        <a class="nav-link dropdown-toggle">Alati</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="baterijski-alat.html">Baterijski alat</a></li>
-                            <li><a href="rucni-alati.html">Ručni alat</a></li>
+                            <li><a href="oprema.html" class="dropdown-link--all">Svi proizvodi</a></li>
+                            <li><a href="oprema.html?kat=pet-trake">PET trake</a></li>
+                            <li><a href="oprema.html?kat=pp-trake">PP trake</a></li>
+                            <li><a href="oprema.html?kat=spojnice-kopce">Spojnice i kopče</a></li>
+                            <li><a href="oprema.html?kat=alati">Alati za vezanje</a></li>
+                            <li><a href="oprema.html?kat=baterijski-alati">Baterijski alati</a></li>
+                            <li><a href="oprema.html?kat=masine">Mašine za pakovanje</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a href="/kontakt/kontakt.html" class="nav-link contact-btn" data-contact-popup>Kontakt</a>
+                        <a href="index.html#partneri" class="nav-link">Naši partneri</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link contact-btn" data-contact-popup>Kontakt</a>
                     </li>
 
                 </ul>
@@ -80,38 +70,38 @@
             <div class="slider-track" id="sliderTrack">
 
                 <div class="slider-item">
-                    <img src="images/img1.png" alt="Žičane spojnice za trake">
+                    <img src="images/img1.jpg" alt="Žičane kopče za trake">
                 </div>
 
                 <div class="slider-item">
-                    <img src="images/img2.png" alt="Metalne spojnice za trake">
+                    <img src="images/img2.jpg" alt="Metalne spojnice za trake">
                 </div>
 
                 <div class="slider-item">
-                    <img src="images/img3.png" alt="PP trake">
+                    <img src="images/img3.jpg" alt="PP trake">
                 </div>
 
                 <div class="slider-item">
-                    <img src="images/img4.png" alt="PET trake">
+                    <img src="images/img4.jpg" alt="PET trake">
                 </div>
 
                 <div class="slider-item">
-                    <img src="images/img5.png" alt="Baterijski alat">
+                    <img src="images/img5.jpg" alt="Baterijski alat">
                 </div>
 
-                <div class=" slider-item">
-                    <img src="images/img6.png" alt="Ručni alat">
+                <div class="slider-item">
+                    <img src="images/img6.jpg" alt="Ručni alat">
                 </div>
 
             </div>
 
             <div class="slider-panel" id="sliderPanel">
-                <span class="slider-panel-kicker" id="sliderCategory">RUČNI ALATI</span>
-                <h2 id="sliderTitle">Ručni alati</h2>
+                <span class="slider-panel-kicker" id="sliderCategory">SPOJNICE I KOPČE</span>
+                <h2 id="sliderTitle">Žičane kopče</h2>
                 <p id="sliderText">
-                    Alati za zatezanje, sečenje i zatvaranje traka, pogodni za svakodnevnu upotrebu u pakovanju.
+                    Fosfatizovane kopče za siguran spoj PET trake i pod većim opterećenjem.
                 </p>
-                <a href="rucni-alati.html" class="slider-panel-btn" id="sliderLink">
+                <a href="proizvodi/kopce-pet-16.html" class="slider-panel-btn" id="sliderLink">
                     Pogledaj proizvod
                 </a>
             </div>
@@ -129,81 +119,93 @@
             </div>
         </section>
 
-        <section class="snap-section content-section product-overview-section">
-            <div class="section-content product-overview-content">
-                <span class="section-label">ALOPAK PONUDA</span>
-                <h1>Pregled proizvoda</h1>
+        <section class="snap-section content-section partners-section" id="partneri">
+            <div class="section-content">
+                <span class="section-label">SARADNJA</span>
+                <h1>Naši partneri</h1>
+                <p>Zastupamo i sarađujemo sa vodećim evropskim proizvođačima opreme za pakovanje,
+                    vezivanje i industrijsku proizvodnju.</p>
 
-                <div class="product-overview-grid" aria-label="Pregled Alopak proizvoda">
-                    <a href="zicane-spojnice.html" class="product-overview-card">
-                        <img src="images/imgZicne.png" alt="" class="product-overview-card__image">
-                        <h2>Žičane spojnice</h2>
-                        <p>Praktične spojnice za brzo i čvrsto povezivanje traka.</p>
-                        <span class="product-overview-card__link">Pogledaj ponudu</span>
+                <div class="partners-grid">
+                    <a href="https://oms-group.com/" class="partner-card" target="_blank" rel="noopener">
+                        <img src="images/partneri/oms.PNG" alt="" class="partner-card__logo" onerror="this.remove()"
+                            loading="lazy">
+                        <span class="partner-card__mark" aria-hidden="true">OMS</span>
+                        <span>
+                            <span class="partner-card__name">OMS S.p.A.</span>
+                            <span class="partner-card__url">oms-group.com</span>
+                        </span>
                     </a>
-
-                    <a href="metalne-spojnice.html" class="product-overview-card">
-                        <img src="images/imgMetalne.png" alt="" class="product-overview-card__image">
-                        <h2>Metalne spojnice</h2>
-                        <p>Spojni elementi za sigurno zatvaranje PP i PET traka.</p>
-                        <span class="product-overview-card__link">Pogledaj ponudu</span>
+                    <a href="https://www.sabo.gr/" class="partner-card" target="_blank" rel="noopener">
+                        <img src="images/partneri/sabo-logo-web.png" alt="" class="partner-card__logo"
+                            onerror="this.remove()" loading="lazy">
+                        <span class="partner-card__mark" aria-hidden="true">SB</span>
+                        <span>
+                            <span class="partner-card__name">SABO S.A.</span>
+                            <span class="partner-card__url">sabo.gr</span>
+                        </span>
                     </a>
-
-                    <a href="pp-trake.html" class="product-overview-card">
-                        <img src="images/imgPP.png" alt="" class="product-overview-card__image">
-                        <h2>PP trake</h2>
-                        <p>Trake za svakodnevno pakovanje lakše i srednje teške robe.</p>
-                        <span class="product-overview-card__link">Pogledaj ponudu</span>
+                    <a href="https://sabofiliere.com/" class="partner-card" target="_blank" rel="noopener">
+                        <img src="images/partneri/SABO-FILIERE_cmyk.svg" alt="" class="partner-card__logo"
+                            onerror="this.remove()" loading="lazy">
+                        <span class="partner-card__mark" aria-hidden="true">SF</span>
+                        <span>
+                            <span class="partner-card__name">Sabo Filiere S.A.</span>
+                            <span class="partner-card__url">sabofiliere.com</span>
+                        </span>
                     </a>
-
-                    <a href="automatske-pp-trake.html" class="product-overview-card">
-                        <img src="images/imgAutomPP.png" alt="" class="product-overview-card__image">
-                        <h2>Automatske PP trake</h2>
-                        <p>PP trake namenjene radu sa automatskim sistemima pakovanja.</p>
-                        <span class="product-overview-card__link">Pogledaj ponudu</span>
+                    <a href="https://bongioannimacchine.it/heavy_clay_technology/en/" class="partner-card"
+                        target="_blank" rel="noopener">
+                        <img src="images/partneri/heavy-clay-technology-logo-16079385602.png" alt=""
+                            class="partner-card__logo" onerror="this.remove()" loading="lazy">
+                        <span class="partner-card__mark" aria-hidden="true">BM</span>
+                        <span>
+                            <span class="partner-card__name">Bongioanni Macchine S.p.A.</span>
+                            <span class="partner-card__url">bongioannimacchine.it</span>
+                        </span>
                     </a>
-
-                    <a href="pet-trake.html" class="product-overview-card">
-                        <img src="images/imgPET.png" alt="" class="product-overview-card__image">
-                        <h2>PET trake</h2>
-                        <p>Izdržljive trake za teže terete, palete i transport.</p>
-                        <span class="product-overview-card__link">Pogledaj ponudu</span>
+                    <a href="https://ripack.com/en/" class="partner-card" target="_blank" rel="noopener">
+                        <img src="images/partneri/ripak.PNG" alt="" class="partner-card__logo" onerror="this.remove()"
+                            loading="lazy">
+                        <span class="partner-card__mark" aria-hidden="true">RP</span>
+                        <span>
+                            <span class="partner-card__name">Ripack</span>
+                            <span class="partner-card__url">ripack.com</span>
+                        </span>
                     </a>
-
-                    <a href="industrijske-pet-trake.html" class="product-overview-card">
-                        <img src="images/imgPET.png" alt="" class="product-overview-card__image">
-                        <h2>Industrijske PET trake</h2>
-                        <p>Privremena slika, kasnije ubaci posebnu za industrijsku PET traku.</p>
-                        <span class="product-overview-card__link">Pogledaj ponudu</span>
-                    </a>
-
-                    <a href="baterijski-alat.html" class="product-overview-card">
-                        <img src="images/imgBaterijskiAlat.png" alt="" class="product-overview-card__image">
-                        <h2>Baterijski alat</h2>
-                        <p>Praktičan alat za brzo vezivanje PP i PET trakom.</p>
-                        <span class="product-overview-card__link">Pogledaj ponudu</span>
-                    </a>
-
-                    <a href="rucni-alati.html" class="product-overview-card">
-                        <img src="images/imgMasina.png" alt="" class="product-overview-card__image">
-                        <h2>Ručni alat</h2>
-                        <p>Ručni alat za zatezanje, sečenje i zatvaranje traka.</p>
-                        <span class="product-overview-card__link">Pogledaj ponudu</span>
+                    <a href="https://fullstrap.com/" class="partner-card" target="_blank" rel="noopener">
+                        <img src="images/partneri/Full-Strap-Reggiatrici-Nastratrici-e-Avvolgitrici.png" alt=""
+                            class="partner-card__logo" onerror="this.remove()" loading="lazy">
+                        <span class="partner-card__mark" aria-hidden="true">FS</span>
+                        <span>
+                            <span class="partner-card__name">Full Strap</span>
+                            <span class="partner-card__url">fullstrap.com</span>
+                        </span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="snap-section content-section section-blue">
-            <div class="section-content">
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <div class="site-footer__brand">
+                    <img src="images/alopak_logo.png" alt="ALOPAK">
+                    <p>Oprema i materijali za vezivanje i pakovanje – PP i PET trake, spojnice, alati i mašine.</p>
+                </div>
+                <div class="site-footer__col">
+                    <h3>Navigacija</h3>
+                    <a href="index.html">Početna</a>
+                    <a href="oprema.html">Oprema</a>
+                    <a href="index.html#partneri">Naši partneri</a>
+                </div>
+                <div class="site-footer__col">
+                    <h3>Kontakt</h3>
+                    <a href="tel:+38163226459">+381 63 226 459</a>
+                    <a href="mailto:alopakrs@gmail.com">alopakrs@gmail.com</a>
+                </div>
             </div>
-        </section>
-
-        <section class="snap-section content-section">
-            <div class="section-content">
-            </div>
-        </section>
-
+            <div class="site-footer__bottom">© 2026 ALOPAK. Sva prava zadržana.</div>
+        </footer>
     </main>
 
     <div class="contact-modal" id="contactModal" aria-hidden="true">
@@ -218,27 +220,29 @@
             <div class="contact-modal__header">
                 <span class="contact-modal__label">ALOPAK</span>
                 <h2 id="contactModalTitle">Kontakt podaci</h2>
+                <p>Tu smo za ponude, tehnička pitanja i izbor opreme za vaše pakovanje.</p>
             </div>
 
             <div class="contact-modal__grid">
                 <a class="contact-modal__item" href="tel:+38163226459">
-                    <span class="contact-modal__icon">✆</span>
+                    <span class="contact-modal__icon">&#9742;</span>
                     <span>
                         <strong>Telefon</strong>
-                        <medium>+381 63 226 459</medium>
+                        <small>+381 63 226 459</small>
                     </span>
                 </a>
 
-                <a class="contact-modal__item" href="mailto:info@alopak.rs" target="_blank">
-                    <span class="contact-modal__icon">✉</span>
+                <a class="contact-modal__item" href="mailto:alopakrs@gmail.com">
+                    <span class="contact-modal__icon">&#9993;</span>
                     <span>
                         <strong>Email</strong>
-                        <medium>alopakrs@gmail.com</medium>
+                        <small>alopakrs@gmail.com</small>
                     </span>
                 </a>
             </div>
         </div>
     </div>
+
 
     <script src="js/navbarScript.js"></script>
     <script src="js/sliderScript.js"></script>

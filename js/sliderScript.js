@@ -12,45 +12,45 @@ const sliderLink = document.getElementById("sliderLink");
 
 const slideContent = [
     {
-        category: "SPOJNICE",
-        title: "Žičane spojnice",
-        text: "Praktične spojnice za brzo i čvrsto povezivanje traka bez komplikovanog procesa montaže.",
-        link: "zicane-spojnice.html",
+        category: "SPOJNICE I KOPČE",
+        title: "Žičane kopče",
+        text: "Fosfatizovane kopče za siguran spoj PET trake i pod većim opterećenjem.",
+        link: "proizvodi/kopce-pet-16.html",
         button: "Pogledaj proizvod"
     },
     {
-        category: "SPOJNICE",
+        category: "SPOJNICE I KOPČE",
         title: "Metalne spojnice",
-        text: "Kvalitetne spojnice za sigurno zatvaranje PP i PET traka, namenjene stabilnom pakovanju robe.",
-        link: "spojnice.html",
+        text: "Kvalitetne spojnice za sigurno zatvaranje PP traka, namenjene stabilnom pakovanju robe.",
+        link: "oprema.html?kat=spojnice-kopce",
         button: "Pogledaj spojnice"
     },
     {
         category: "PP TRAKE",
         title: "PP trake",
         text: "Ekonomično rešenje za svakodnevno pakovanje lakše i srednje teške robe.",
-        link: "pp-trake.html",
+        link: "oprema.html?kat=pp-trake",
         button: "Pogledaj PP trake"
     },
     {
         category: "PET TRAKE",
         title: "PET trake",
         text: "Snažne i izdržljive trake za teže terete, paletizovanu robu i zahtevnije uslove transporta.",
-        link: "pet-trake.html",
+        link: "oprema.html?kat=pet-trake",
         button: "Pogledaj PET trake"
     },
     {
-        category: "MAŠINE I ALATI",
-        title: "Baterijski alat",
-        text: "Praktičan baterijski alat za brzo i efikasno vezivanje PP i PET trakom.",
-        link: "baterijski-alat.html",
-        button: "Pogledaj proizvod"
+        category: "BATERIJSKI ALATI",
+        title: "Baterijski alati",
+        text: "Poluautomatski i automatski alati za brzo vezivanje PP i PET trakom bez spojnica.",
+        link: "oprema.html?kat=baterijski-alati",
+        button: "Pogledaj alate"
     },
     {
-        category: "RUČNI ALATI",
+        category: "ALATI ZA VEZANJE",
         title: "Ručni alati",
-        text: "Alati za zatezanje, sečenje i zatvaranje traka, pogodni za svakodnevnu upotrebu u pakovanju.",
-        link: "rucni-alati.html",
+        text: "Kombinovani alati i zatezači za zatezanje, sečenje i zatvaranje traka.",
+        link: "oprema.html?kat=alati",
         button: "Pogledaj alate"
     }
 ];

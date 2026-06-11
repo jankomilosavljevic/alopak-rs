@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oprema | ALOPAK</title>
+    <meta name="description" content="PET i PP trake, spojnice i kopče, alati i mašine za vezivanje i pakovanje. Pretražite kompletnu ALOPAK ponudu.">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/contact-popup.css">
+</head>
+
+<body class="subpage">
+
+    <header class="site-header">
+        <div class="header-inner">
+
+            <a href="index.html" class="logo-wrap" aria-label="ALOPAK – početna">
+                <img src="images/alopak_logo.png" alt="ALOPAK" class="logo-img">
+            </a>
+
+            <button class="burger-btn" id="burgerBtn" aria-label="Otvori meni" aria-expanded="false" aria-controls="navMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-holder" aria-label="Glavna navigacija">
+                <ul class="nav-menu" id="navMenu">
+
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Početna</a>
+                    </li>
+
+                    <li class="nav-item has-dropdown">
+                        <a class="nav-link dropdown-toggle" href="oprema.html" aria-haspopup="true" aria-expanded="false">Oprema</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="oprema.html" class="dropdown-link--all">Svi proizvodi</a></li>
+                            <li><a href="oprema.html?kat=pet-trake">PET trake</a></li>
+                            <li><a href="oprema.html?kat=pp-trake">PP trake</a></li>
+                            <li><a href="oprema.html?kat=spojnice-kopce">Spojnice i kopče</a></li>
+                            <li><a href="oprema.html?kat=alati">Alati za vezanje</a></li>
+                            <li><a href="oprema.html?kat=baterijski-alati">Baterijski alati</a></li>
+                            <li><a href="oprema.html?kat=masine">Mašine za pakovanje</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="index.html#partneri" class="nav-link">Partneri</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link contact-btn" data-contact-popup>Kontakt</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="page-scroll page-scroll--subpage" id="pageScroll">
+
+        <section class="catalog-hero">
+            <span class="section-label">ALOPAK PONUDA</span>
+            <h1>Oprema za vezivanje i pakovanje</h1>
+            <p>Kompletan asortiman PET i PP traka, spojnica, kopči, ručnih i baterijskih alata i mašina.
+               Filtrirajte po kategoriji ili pretražite po nazivu i dimenziji.</p>
+        </section>
+
+        <div class="catalog-toolbar">
+            <div class="catalog-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                </svg>
+                <input type="search" id="catalogSearch" placeholder="Pretraži proizvode, npr. 12mm, PET, alat…"
+                    aria-label="Pretraga proizvoda">
+            </div>
+
+            <div class="catalog-filters" id="catalogFilters" role="group" aria-label="Filter po kategoriji">
+                <button class="filter-pill active" data-cat="sve" type="button">Sve</button>
+            </div>
+
+            <p class="catalog-count" id="catalogCount" aria-live="polite"></p>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid"></div>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <div class="site-footer__brand">
+                    <img src="images/alopak_logo.png" alt="ALOPAK">
+                    <p>Oprema i materijali za vezivanje i pakovanje – PP i PET trake, spojnice, alati i mašine.</p>
+                </div>
+                <div class="site-footer__col">
+                    <h3>Navigacija</h3>
+                    <a href="index.html">Početna</a>
+                    <a href="oprema.html">Oprema</a>
+                    <a href="index.html#partneri">Partneri</a>
+                </div>
+                <div class="site-footer__col">
+                    <h3>Kontakt</h3>
+                    <a href="tel:+38163226459">+381 63 226 459</a>
+                    <a href="mailto:alopakrs@gmail.com">alopakrs@gmail.com</a>
+                </div>
+            </div>
+            <div class="site-footer__bottom">© 2026 ALOPAK. Sva prava zadržana.</div>
+        </footer>
+    </main>
+
+    <div class="contact-modal" id="contactModal" aria-hidden="true">
+        <div class="contact-modal__backdrop" data-contact-close></div>
+
+        <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle"
+            tabindex="-1">
+            <button class="contact-modal__close" type="button" aria-label="Zatvori popup" data-contact-close>
+                &times;
+            </button>
+
+            <div class="contact-modal__header">
+                <span class="contact-modal__label">ALOPAK</span>
+                <h2 id="contactModalTitle">Kontakt podaci</h2>
+                <p>Tu smo za ponude, tehnička pitanja i izbor opreme za vaše pakovanje.</p>
+            </div>
+
+            <div class="contact-modal__grid">
+                <a class="contact-modal__item" href="tel:+38163226459">
+                    <span class="contact-modal__icon">&#9742;</span>
+                    <span>
+                        <strong>Telefon</strong>
+                        <small>+381 63 226 459</small>
+                    </span>
+                </a>
+
+                <a class="contact-modal__item" href="mailto:alopakrs@gmail.com">
+                    <span class="contact-modal__icon">&#9993;</span>
+                    <span>
+                        <strong>Email</strong>
+                        <small>alopakrs@gmail.com</small>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/catalog.js"></script>
+    <script src="js/navbarScript.js"></script>
+    <script src="js/contactPopup.js"></script>
+</body>
+
+</html>

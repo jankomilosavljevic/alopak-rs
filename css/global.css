@@ -171,15 +171,19 @@ body {
 
 .product-overview-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
+}
+
+.product-overview-cta {
+    margin-top: 26px;
 }
 
 .product-overview-card {
     --card-accent: #0e548f;
 
     position: relative;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 20 / 14;
     min-height: 0;
     padding: 24px;
     overflow: hidden;
@@ -203,35 +207,7 @@ body {
         box-shadow 0.22s ease;
 }
 
-.product-overview-card:nth-child(1) {
-    --card-accent: #001b50;
-}
-
-.product-overview-card:nth-child(2) {
-    --card-accent: #001b50;
-}
-
-.product-overview-card:nth-child(3) {
-    --card-accent: #001b50;
-}
-
-.product-overview-card:nth-child(4) {
-    --card-accent: #001b50;
-}
-
-.product-overview-card:nth-child(5) {
-    --card-accent: #001b50;
-}
-
-.product-overview-card:nth-child(6) {
-    --card-accent: #001b50;
-}
-
-.product-overview-card:nth-child(7) {
-    --card-accent: #001b50;
-}
-
-.product-overview-card:nth-child(8) {
+.product-overview-card {
     --card-accent: #001b50;
 }
 
@@ -347,4 +323,9 @@ body {
         min-height: 0;
         padding: 19px;
     }
+}
+
+/* Footer dostupan i pri snap skrolovanju */
+.site-footer {
+    scroll-snap-align: end;
 }
