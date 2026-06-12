@@ -14,18 +14,26 @@
     overflow: hidden;
 }
 
+/* Slajdovi dele istu pozadinu, pa se pretapanjem menja samo proizvod */
+
 .slider-track {
     width: 100%;
     height: 100%;
-    display: flex;
-    transition: transform 0.6s ease;
+    position: relative;
 }
 
 .slider-item {
     background-color: white;
-    width: 100%;
-    height: 100%;
-    flex: 0 0 100%;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.7s ease;
+}
+
+.slider-item.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .slider-item img {

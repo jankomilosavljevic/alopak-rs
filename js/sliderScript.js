@@ -48,61 +48,16 @@ const slideContent = [
     }
 ];
 
-let originalSlides = sliderTrack
+const slides = sliderTrack
     ? Array.from(sliderTrack.querySelectorAll(".slider-item"))
     : [];
 
-const totalSlides = originalSlides.length;
+const totalSlides = slides.length;
 
-let currentIndex = 1;
-let isTransitioning = false;
-let isDragging = false;
-
-if (sliderTrack && totalSlides > 0) {
-    const firstClone = originalSlides[0].cloneNode(true);
-    const lastClone = originalSlides[totalSlides - 1].cloneNode(true);
-
-    firstClone.classList.add("slider-clone");
-    lastClone.classList.add("slider-clone");
-
-    sliderTrack.appendChild(firstClone);
-    sliderTrack.insertBefore(lastClone, originalSlides[0]);
-
-    sliderTrack.style.transition = "none";
-    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-    requestAnimationFrame(function () {
-        sliderTrack.style.transition = "transform 0.6s ease";
-    });
-}
-
-function getRealIndex() {
-    if (currentIndex === 0) {
-        return totalSlides - 1;
-    }
-
-    if (currentIndex === totalSlides + 1) {
-        return 0;
-    }
-
-    return currentIndex - 1;
-}
-
-function updateDots() {
-    const realIndex = getRealIndex();
-
-    dots.forEach(function (dot) {
-        dot.classList.remove("active");
-    });
-
-    if (dots[realIndex]) {
-        dots[realIndex].classList.add("active");
-    }
-}
+let currentIndex = 0;
 
 function updatePanel() {
-    const realIndex = getRealIndex();
-    const content = slideContent[realIndex];
+    const content = slideContent[currentIndex];
 
     if (!content || !sliderPanel) return;
 
@@ -119,167 +74,85 @@ function updatePanel() {
     }, 120);
 }
 
-function moveSlider(withTransition = true) {
-    if (!sliderTrack) return;
+function render() {
+    slides.forEach(function (slide, i) {
+        slide.classList.toggle("active", i === currentIndex);
+    });
 
-    sliderTrack.style.transition = withTransition ? "transform 0.6s ease" : "none";
-    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach(function (dot, i) {
+        dot.classList.toggle("active", i === currentIndex);
+    });
 
-    updateDots();
     updatePanel();
-
-    if (withTransition) {
-        isTransitioning = true;
-    } else {
-        isTransitioning = false;
-    }
 }
 
-function jumpWithoutAnimation() {
-    if (!sliderTrack) return;
+function goTo(index) {
+    if (totalSlides === 0) return;
 
-    sliderTrack.style.transition = "none";
-    sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-    sliderTrack.offsetHeight;
-
-    sliderTrack.style.transition = "transform 0.6s ease";
-}
-
-function goToNextSlide() {
-    if (isTransitioning) return;
-
-    currentIndex++;
-    moveSlider(true);
-}
-
-function goToPrevSlide() {
-    if (isTransitioning) return;
-
-    currentIndex--;
-    moveSlider(true);
+    currentIndex = ((index % totalSlides) + totalSlides) % totalSlides;
+    render();
 }
 
 if (nextBtn) {
     nextBtn.addEventListener("click", function (event) {
         event.stopPropagation();
-        goToNextSlide();
+        goTo(currentIndex + 1);
     });
 }
 
 if (prevBtn) {
     prevBtn.addEventListener("click", function (event) {
         event.stopPropagation();
-        goToPrevSlide();
+        goTo(currentIndex - 1);
     });
 }
 
 dots.forEach(function (dot) {
     dot.addEventListener("click", function (event) {
         event.stopPropagation();
-
-        if (isTransitioning) return;
-
-        const targetRealIndex = Number(dot.dataset.index);
-        const currentRealIndex = getRealIndex();
-
-        if (targetRealIndex === currentRealIndex) {
-            return;
-        }
-
-        if (currentRealIndex === 0 && targetRealIndex === totalSlides - 1) {
-            currentIndex = 0;
-        } else if (currentRealIndex === totalSlides - 1 && targetRealIndex === 0) {
-            currentIndex = totalSlides + 1;
-        } else {
-            currentIndex = targetRealIndex + 1;
-        }
-
-        moveSlider(true);
+        goTo(Number(dot.dataset.index));
     });
 });
-
-if (sliderTrack) {
-    sliderTrack.addEventListener("transitionend", function () {
-        if (currentIndex === 0) {
-            currentIndex = totalSlides;
-            jumpWithoutAnimation();
-        }
-
-        if (currentIndex === totalSlides + 1) {
-            currentIndex = 1;
-            jumpWithoutAnimation();
-        }
-
-        isTransitioning = false;
-    });
-}
 
 /* TOUCH / SWIPE ZA TELEFON */
 
 let touchStartX = 0;
 let touchStartY = 0;
-let touchCurrentX = 0;
+let swipeActive = false;
 
-if (slider && sliderTrack) {
+if (slider) {
     slider.addEventListener("touchstart", function (event) {
         const touchedControl = event.target.closest(
             ".slider-btn, .slider-dot, .slider-panel-btn"
         );
 
         if (touchedControl) {
-            isDragging = false;
+            swipeActive = false;
             return;
         }
 
-        if (isTransitioning) return;
-
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
-        touchCurrentX = touchStartX;
-        isDragging = true;
-
-        sliderTrack.style.transition = "none";
+        swipeActive = true;
     }, { passive: true });
 
-    slider.addEventListener("touchmove", function (event) {
-        if (!isDragging) return;
+    slider.addEventListener("touchend", function (event) {
+        if (!swipeActive) return;
 
-        touchCurrentX = event.touches[0].clientX;
+        swipeActive = false;
 
-        const touchCurrentY = event.touches[0].clientY;
-        const diffX = touchCurrentX - touchStartX;
-        const diffY = touchCurrentY - touchStartY;
-
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-            event.preventDefault();
-
-            sliderTrack.style.transform = `translateX(calc(-${currentIndex * 100}% + ${diffX}px))`;
-        }
-    }, { passive: false });
-
-    slider.addEventListener("touchend", function () {
-        if (!isDragging) return;
-
-        isDragging = false;
-
-        const diffX = touchCurrentX - touchStartX;
+        const diffX = event.changedTouches[0].clientX - touchStartX;
+        const diffY = event.changedTouches[0].clientY - touchStartY;
         const swipeLimit = 50;
 
-        if (diffX < -swipeLimit) {
-            goToNextSlide();
-        } else if (diffX > swipeLimit) {
-            goToPrevSlide();
-        } else {
-            moveSlider(false);
-        }
-    });
+        if (Math.abs(diffX) <= Math.abs(diffY)) return;
 
-    slider.addEventListener("touchcancel", function () {
-        isDragging = false;
-        moveSlider(false);
+        if (diffX < -swipeLimit) {
+            goTo(currentIndex + 1);
+        } else if (diffX > swipeLimit) {
+            goTo(currentIndex - 1);
+        }
     });
 }
 
-updateDots();
-updatePanel();
+render();
