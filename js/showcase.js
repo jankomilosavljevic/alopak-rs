@@ -90,7 +90,6 @@ if (showcaseTrack && showcaseMarquee && typeof ALOPAK_DATA !== "undefined") {
         dragging = true;
         dragDistance = 0;
         lastX = event.clientX;
-        showcaseMarquee.setPointerCapture(event.pointerId);
     });
 
     showcaseMarquee.addEventListener("pointermove", function (event) {
@@ -101,6 +100,12 @@ if (showcaseTrack && showcaseMarquee && typeof ALOPAK_DATA !== "undefined") {
 
         offset += dx;
         dragDistance += Math.abs(dx);
+
+        // Pointer hvatamo tek kada prevlačenje stvarno počne,
+        // inače bi klik na karticu bio preusmeren na traku
+        if (dragDistance > 8 && !showcaseMarquee.hasPointerCapture(event.pointerId)) {
+            showcaseMarquee.setPointerCapture(event.pointerId);
+        }
     });
 
     function endDrag() {
