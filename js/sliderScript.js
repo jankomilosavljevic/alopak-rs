@@ -13,45 +13,38 @@ const sliderLink = document.getElementById("sliderLink");
 const slideContent = [
     {
         category: "SPOJNICE I KOPČE",
-        title: "Žičane kopče",
-        text: "Fosfatizovane kopče za siguran spoj PET trake i pod većim opterećenjem.",
-        link: "proizvodi/kopce-pet-16.html",
-        button: "Pogledaj proizvod"
-    },
-    {
-        category: "SPOJNICE I KOPČE",
-        title: "Metalne spojnice",
-        text: "Kvalitetne spojnice za sigurno zatvaranje PP traka, namenjene stabilnom pakovanju robe.",
+        title: "Spojnice i kopče",
+        text: "Fosfatizovane žičane kopče i metalne spojnice za siguran spoj PP i PET traka.",
         link: "oprema.html?kat=spojnice-kopce",
-        button: "Pogledaj spojnice"
+        button: "Pogledaj ponudu"
     },
     {
         category: "PP TRAKE",
         title: "PP trake",
         text: "Ekonomično rešenje za svakodnevno pakovanje lakše i srednje teške robe.",
         link: "oprema.html?kat=pp-trake",
-        button: "Pogledaj PP trake"
+        button: "Pogledaj ponudu"
     },
     {
         category: "PET TRAKE",
         title: "PET trake",
         text: "Snažne i izdržljive trake za teže terete, paletizovanu robu i zahtevnije uslove transporta.",
         link: "oprema.html?kat=pet-trake",
-        button: "Pogledaj PET trake"
+        button: "Pogledaj ponudu"
     },
     {
         category: "BATERIJSKI ALATI",
         title: "Baterijski alati",
         text: "Poluautomatski i automatski alati za brzo vezivanje PP i PET trakom bez spojnica.",
         link: "oprema.html?kat=baterijski-alati",
-        button: "Pogledaj alate"
+        button: "Pogledaj ponudu"
     },
     {
         category: "ALATI ZA VEZANJE",
         title: "Ručni alati",
         text: "Kombinovani alati i zatezači za zatezanje, sečenje i zatvaranje traka.",
         link: "oprema.html?kat=alati",
-        button: "Pogledaj alate"
+        button: "Pogledaj ponudu"
     }
 ];
 

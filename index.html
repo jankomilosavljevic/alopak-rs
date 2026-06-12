@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/showcase.css">
     <link rel="stylesheet" href="css/contact-popup.css">
 </head>
 
@@ -39,9 +40,8 @@
 
                     <li class="nav-item has-dropdown">
                         <a class="nav-link dropdown-toggle" href="oprema.html" aria-haspopup="true"
-                            aria-expanded="false">Oprema</a>
+                            aria-expanded="false">Artikli</a>
                         <ul class="dropdown-menu">
-                            <li><a href="oprema.html" class="dropdown-link--all">Svi proizvodi</a></li>
                             <li><a href="oprema.html?kat=pet-trake">PET trake</a></li>
                             <li><a href="oprema.html?kat=pp-trake">PP trake</a></li>
                             <li><a href="oprema.html?kat=spojnice-kopce">Spojnice i kopče</a></li>
@@ -67,55 +67,64 @@
 
     <main class="page-scroll" id="pageScroll">
         <section class="slider snap-section">
-            <div class="slider-track" id="sliderTrack">
+            <div class="slider-frame">
+                <div class="slider-track" id="sliderTrack">
 
-                <div class="slider-item">
-                    <img src="images/img1.jpg" alt="Žičane kopče za trake">
+                    <div class="slider-item">
+                        <img src="images/img1.jpg" alt="Žičane kopče i metalne spojnice za trake">
+                    </div>
+
+                    <div class="slider-item">
+                        <img src="images/img3.jpg" alt="PP trake">
+                    </div>
+
+                    <div class="slider-item">
+                        <img src="images/img4.jpg" alt="PET trake">
+                    </div>
+
+                    <div class="slider-item">
+                        <img src="images/img5.jpg" alt="Baterijski alat">
+                    </div>
+
+                    <div class="slider-item">
+                        <img src="images/img6.jpg" alt="Ručni alat">
+                    </div>
+
                 </div>
 
-                <div class="slider-item">
-                    <img src="images/img2.jpg" alt="Metalne spojnice za trake">
+                <div class="slider-panel" id="sliderPanel">
+                    <span class="slider-panel-kicker" id="sliderCategory">SPOJNICE I KOPČE</span>
+                    <h2 id="sliderTitle">Spojnice i kopče</h2>
+                    <p id="sliderText">
+                        Fosfatizovane žičane kopče i metalne spojnice za siguran spoj PP i PET traka.
+                    </p>
+                    <a href="oprema.html?kat=spojnice-kopce" class="slider-panel-btn" id="sliderLink">
+                        Pogledaj ponudu
+                    </a>
                 </div>
 
-                <div class="slider-item">
-                    <img src="images/img3.jpg" alt="PP trake">
-                </div>
+                <button class="slider-btn slider-btn-left" id="prevBtn" aria-label="Prethodna slika">&#10094;</button>
+                <button class="slider-btn slider-btn-right" id="nextBtn" aria-label="Sledeća slika">&#10095;</button>
 
-                <div class="slider-item">
-                    <img src="images/img4.jpg" alt="PET trake">
+                <div class="slider-dots" aria-label="Navigacija slajdera">
+                    <button class="slider-dot active" data-index="0" aria-label="Slika 1"></button>
+                    <button class="slider-dot" data-index="1" aria-label="Slika 2"></button>
+                    <button class="slider-dot" data-index="2" aria-label="Slika 3"></button>
+                    <button class="slider-dot" data-index="3" aria-label="Slika 4"></button>
+                    <button class="slider-dot" data-index="4" aria-label="Slika 5"></button>
                 </div>
+            </div>
+        </section>
 
-                <div class="slider-item">
-                    <img src="images/img5.jpg" alt="Baterijski alat">
-                </div>
-
-                <div class="slider-item">
-                    <img src="images/img6.jpg" alt="Ručni alat">
-                </div>
-
+        <section class="snap-section content-section showcase-section" id="ponuda">
+            <div class="section-content">
+                <span class="section-label">IZ NAŠE PONUDE</span>
+                <h1>Izdvojeni proizvodi</h1>
+                <p>Trake, spojnice i alati koje naši kupci najčešće biraju.</p>
             </div>
 
-            <div class="slider-panel" id="sliderPanel">
-                <span class="slider-panel-kicker" id="sliderCategory">SPOJNICE I KOPČE</span>
-                <h2 id="sliderTitle">Žičane kopče</h2>
-                <p id="sliderText">
-                    Fosfatizovane kopče za siguran spoj PET trake i pod većim opterećenjem.
-                </p>
-                <a href="proizvodi/kopce-pet-16.html" class="slider-panel-btn" id="sliderLink">
-                    Pogledaj proizvod
-                </a>
-            </div>
-
-            <button class="slider-btn slider-btn-left" id="prevBtn" aria-label="Prethodna slika">&#10094;</button>
-            <button class="slider-btn slider-btn-right" id="nextBtn" aria-label="Sledeća slika">&#10095;</button>
-
-            <div class="slider-dots" aria-label="Navigacija slajdera">
-                <button class="slider-dot active" data-index="0" aria-label="Slika 1"></button>
-                <button class="slider-dot" data-index="1" aria-label="Slika 2"></button>
-                <button class="slider-dot" data-index="2" aria-label="Slika 3"></button>
-                <button class="slider-dot" data-index="3" aria-label="Slika 4"></button>
-                <button class="slider-dot" data-index="4" aria-label="Slika 5"></button>
-                <button class="slider-dot" data-index="5" aria-label="Slika 6"></button>
+            <div class="showcase-marquee">
+                <div class="showcase-track" id="showcaseTrack"></div>
             </div>
         </section>
 
@@ -246,6 +255,8 @@
 
     <script src="js/navbarScript.js"></script>
     <script src="js/sliderScript.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/showcase.js"></script>
     <script src="js/layoutScript.js"></script>
     <script src="js/contactPopup.js"></script>
 </body>

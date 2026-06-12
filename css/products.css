@@ -414,6 +414,12 @@ body.subpage .page-scroll--subpage {
     background: linear-gradient(180deg, #f4f8fc 0%, #ffffff 100%);
 }
 
+/* Uvodni tekst staje u jedan red */
+.partners-section .section-content>p {
+    max-width: none;
+    font-size: clamp(15px, 1.05vw, 18px);
+}
+
 .partners-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
