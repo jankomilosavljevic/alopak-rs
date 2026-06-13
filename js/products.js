@@ -150,7 +150,7 @@ const ALOPAK_DATA = {
       "id": "masine-za-vezanje",
       "cat": "masine",
       "name": "Poluautomatske i automatske mašine za vezanje PP i PET trakom",
-      "image": "imgMasinaPlaceholder.jpg",
+      "image": "imgMasinaVezivanje.jpg",
       "short": "Stone i prolazne mašine za vezivanje paketa PP i PET trakom."
     }
   ]

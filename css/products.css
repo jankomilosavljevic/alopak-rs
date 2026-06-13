@@ -608,3 +608,56 @@ body.subpage .page-scroll--subpage {
 .partner-card__logo+.partner-card__mark {
     display: none;
 }
+
+/* =========== CENE =========== */
+
+/* Cena na kartici kataloga (iznad linka "Detaljnije") */
+.catalog-grid .product-card__price {
+    margin-top: auto;
+    padding-top: 12px;
+    color: #0e548f;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.catalog-grid .product-card__price.is-upit {
+    color: #486173;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.catalog-grid .product-card__link {
+    margin-top: 8px;
+    padding-top: 0;
+}
+
+/* Cena na stranici proizvoda */
+.product-detail__price {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 14px 18px;
+    background: #f4f8fc;
+    border: 1px solid rgba(0, 52, 98, 0.1);
+    border-radius: 14px;
+}
+
+.product-detail__price-label {
+    color: #486173;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.product-detail__price-value {
+    color: #0e548f;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.product-detail__price-value.is-upit {
+    font-size: 20px;
+}

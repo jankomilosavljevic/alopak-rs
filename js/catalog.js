@@ -16,6 +16,16 @@
 
     let activeCat = "sve";
     let query = "";
+    let priceMap = {};
+
+    /* Cena iz data/prices.json; ako nije uključena -> "Cena na upit" */
+    function priceInfo(id) {
+        const e = priceMap[id];
+        if (e && e.show && e.price) {
+            return { text: e.price, upit: false };
+        }
+        return { text: "Cena na upit", upit: true };
+    }
 
     /* Filter dugmad iz podataka */
     ALOPAK_DATA.categories.forEach(function (c) {
@@ -54,6 +64,7 @@
     }
 
     function cardHTML(p) {
+        const pi = priceInfo(p.id);
         return (
             '<a href="proizvodi/' + p.id + '.html" class="product-card">' +
             '<div class="product-card__media"><img src="images/' + p.image + '" alt="" loading="lazy"></div>' +
@@ -61,6 +72,7 @@
             '<span class="product-card__cat">' + catName[p.cat] + "</span>" +
             "<h3>" + p.name + "</h3>" +
             "<p>" + p.short + "</p>" +
+            '<span class="product-card__price' + (pi.upit ? " is-upit" : "") + '">' + pi.text + "</span>" +
             '<span class="product-card__link">Detaljnije</span>' +
             "</div></a>"
         );
@@ -113,12 +125,21 @@
         render();
     });
 
-    /* ?kat= iz URL-a (linkovi iz navigacije) */
-    const params = new URLSearchParams(window.location.search);
-    const fromUrl = params.get("kat");
-    if (fromUrl && catName[fromUrl]) {
-        setCategory(fromUrl);
-    } else {
-        render();
+    function start() {
+        /* ?kat= iz URL-a (linkovi iz navigacije) */
+        const params = new URLSearchParams(window.location.search);
+        const fromUrl = params.get("kat");
+        if (fromUrl && catName[fromUrl]) {
+            setCategory(fromUrl);
+        } else {
+            render();
+        }
     }
+
+    /* Prvo učitaj cene, pa prikaži katalog (radi i ako fajl ne postoji) */
+    fetch("data/prices.json", { cache: "no-store" })
+        .then(function (r) { return r.ok ? r.json() : {}; })
+        .then(function (m) { priceMap = m || {}; })
+        .catch(function () { /* nema cena -> sve "Cena na upit" */ })
+        .then(start);
 })();

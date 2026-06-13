@@ -206,7 +206,7 @@ PRODUCTS = [
     {
         "id": "masine-za-vezanje", "cat": "masine",
         "name": "Poluautomatske i automatske mašine za vezanje PP i PET trakom",
-        "image": "imgMasinaPlaceholder.jpg",
+        "image": "imgMasinaVezivanje.jpg",
         "short": "Stone i prolazne mašine za vezivanje paketa PP i PET trakom.",
         "desc": ("Nudimo poluautomatske i automatske mašine za vezivanje paketa PP i PET trakom – od "
                  "stonih mašina za manje serije do automatskih sistema sa ramom za integraciju u "
@@ -273,6 +273,11 @@ PAGE_TMPL = """<!DOCTYPE html>
                     </tbody>
                 </table>
 
+                <div class="product-detail__price">
+                    <span class="product-detail__price-label">Cena</span>
+                    <span class="product-detail__price-value is-upit" data-price-value>Cena na upit</span>
+                </div>
+
                 <div class="product-detail__actions">
                     <a href="#" class="section-btn" data-contact-popup>Pošaljite upit</a>
                     <a href="../oprema.html?kat={cat}" class="product-detail__back">&#8592; Nazad na {cat_name}</a>
@@ -294,6 +299,7 @@ PAGE_TMPL = """<!DOCTYPE html>
 
     <script src="../js/navbarScript.js"></script>
     <script src="../js/contactPopup.js"></script>
+    <script src="../js/prices.js"></script>
 </body>
 
 </html>
